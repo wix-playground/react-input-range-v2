@@ -237,6 +237,7 @@ export default class Slider extends React.Component {
    */
   render() {
     const style = this.getStyle();
+    const ariaValuetext = this.props.formatLabel ? this.props.formatLabel(this.props.value, this.props.type) : this.props.value;
 
     return (
       <span
@@ -256,6 +257,7 @@ export default class Slider extends React.Component {
           aria-valuemax={this.props.maxValue}
           aria-valuemin={this.props.minValue}
           aria-valuenow={this.props.value}
+          aria-valuetext={ariaValuetext}
           className={this.props.classNames.slider}
           draggable="false"
           onKeyDown={this.handleKeyDown}
