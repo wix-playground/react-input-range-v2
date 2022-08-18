@@ -82,7 +82,7 @@
     "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file",
     "dev": "webpack-dev-server --inline --config webpack-example.config.babel.js --content-base example",
     "docs": "esdoc",
-    "lint": "npm run lint:js && npm run lint:scss",
+    "lint": "npm run lint:js",
     "lint:js": "eslint src/js/ --ext .js --ext .jsx",
     "prepublish": "npm run build",
     "pretest": "npm run lint",
