@@ -411,6 +411,22 @@ describe('InputRange', () => {
     expect(sliderHandle.getDOMNode().getAttribute('aria-valuenow')).toEqual('2');
   });
 
+  it('render the min & max aria-label for screen readers', () => {
+    const jsx = (
+      <InputRange
+        value={{ min: 2, max: 10 }}
+        minAriaLabel={'a-minimum-label'}
+        maxAriaLabel={'a-maximum-label'}
+        onChange={() => {}} />
+    );
+    const component = mount(jsx);
+    const minSliderHandle = component.find('[role="slider"]').first();
+    const maxSliderHandle = component.find('[role="slider"]').last();
+
+    expect(minSliderHandle.getDOMNode().getAttribute('aria-label')).toEqual('a-minimum-label');
+    expect(maxSliderHandle.getDOMNode().getAttribute('aria-label')).toEqual('a-maximum-label');
+  });
+
   it('renders a pair of sliders if the input value is a range', () => {
     const jsx = (
       <InputRange

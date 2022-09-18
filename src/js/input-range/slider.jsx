@@ -12,6 +12,7 @@ export default class Slider extends React.Component {
    * @override
    * @return {Object}
    * @property {Function} ariaLabelledby
+   * @property {Function} ariaLabel
    * @property {Function} ariaControls
    * @property {Function} className
    * @property {Function} formatLabel
@@ -26,6 +27,7 @@ export default class Slider extends React.Component {
   static get propTypes() {
     return {
       ariaLabelledby: PropTypes.string,
+      ariaLabel: PropTypes.string,
       ariaControls: PropTypes.string,
       classNames: PropTypes.objectOf(PropTypes.string).isRequired,
       formatLabel: PropTypes.func,
@@ -42,6 +44,7 @@ export default class Slider extends React.Component {
   /**
    * @param {Object} props
    * @param {string} [props.ariaLabelledby]
+   * @param {string} [props.ariaLabel]
    * @param {string} [props.ariaControls]
    * @param {InputRangeClassNames} props.classNames
    * @param {Function} [props.formatLabel]
@@ -253,6 +256,7 @@ export default class Slider extends React.Component {
 
         <div
           aria-labelledby={this.props.ariaLabelledby}
+          aria-label={this.props.ariaLabel}
           aria-controls={this.props.ariaControls}
           aria-valuemax={this.props.maxValue}
           aria-valuemin={this.props.minValue}
