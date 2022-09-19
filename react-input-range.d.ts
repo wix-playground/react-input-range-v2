@@ -21,6 +21,8 @@ export interface InputRangeClassNames {
 export interface InputRangeProps {
   allowSameValues?: boolean;
   ariaLabelledby?: string;
+  maxAriaLabel?: string;
+  minAriaLabel?: string;
   ariaControls?: string;
   classNames?: InputRangeClassNames;
   disabled?: boolean;
