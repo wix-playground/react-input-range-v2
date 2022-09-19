@@ -26,6 +26,8 @@ export default class InputRange extends React.Component {
       allowSameValues: PropTypes.bool,
       ariaLabelledby: PropTypes.string,
       ariaControls: PropTypes.string,
+      maxAriaLabel: PropTypes.string,
+      minAriaLabel: PropTypes.string,
       classNames: PropTypes.objectOf(PropTypes.string),
       disabled: PropTypes.bool,
       draggableTrack: PropTypes.bool,
@@ -595,6 +597,7 @@ export default class InputRange extends React.Component {
       const percentage = percentages[key];
 
       let { maxValue, minValue } = this.props;
+      const ariaLabel = key === 'min' ? this.props.minAriaLabel : this.props.maxAriaLabel;
 
       if (key === 'min') {
         maxValue = values.max;
@@ -605,6 +608,7 @@ export default class InputRange extends React.Component {
       const slider = (
         <Slider
           ariaLabelledby={this.props.ariaLabelledby}
+          ariaLabel={ariaLabel}
           ariaControls={this.props.ariaControls}
           classNames={this.props.classNames}
           formatLabel={this.props.formatLabel}
